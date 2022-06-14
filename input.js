@@ -15,6 +15,11 @@ const handleUserInput = data => {
     case 'a':
       connection.write('Move: left');
       break;
+    case 'h':
+      connection.write('Say: Waddup');
+      break;
+    case 'j':
+      connection.write('Say: YoYoYO');
   }
 };
 const setupInput = conn => {
