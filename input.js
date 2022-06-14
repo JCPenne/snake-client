@@ -1,25 +1,34 @@
 let connection;
+const { movement, messages } = require('./constants');
+
 const handleUserInput = data => {
   switch (data) {
+    case movement.up.keybinding:
+      connection.write(movement.up.msgToSrvr);
+      break;
+    case movement.left.keybinding:
+      connection.write(movement.left.msgToSrvr);
+      break;
+    case movement.down.keybinding:
+      connection.write(movement.down.msgToSrvr);
+      break;
+    case movement.right.keybinding:
+      connection.write(movement.right.msgToSrvr);
+      break;
+    case messages.h.keybinding:
+      connection.write(messages.h.msg);
+      break;
+    case messages.j.keybinding:
+      connection.write(messages.j.msg);
+      break;
+    case messages.k.keybinding:
+      connection.write(messages.k.msg);
+      break;
+    case messages.l.keybinding:
+      connection.write(messages.l.msg);
+      break;
     case '\u0003':
       process.exit();
-    case 'w':
-      connection.write('Move: up');
-      break;
-    case 'd':
-      connection.write('Move: right');
-      break;
-    case 's':
-      connection.write('Move: down');
-      break;
-    case 'a':
-      connection.write('Move: left');
-      break;
-    case 'h':
-      connection.write('Say: Waddup');
-      break;
-    case 'j':
-      connection.write('Say: YoYoYO');
   }
 };
 const setupInput = conn => {
