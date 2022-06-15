@@ -21,22 +21,21 @@ const movement = {
 const messages = {
   h: {
     keybinding: 'h',
-    msg: 'Say: How bout no..',
+    msg: 'Say: Hungry snake',
   },
   j: {
     keybinding: 'j',
-    msg: 'Say: jkkkkkk',
+    msg: 'Say: Just snakin',
   },
   k: {
     keybinding: 'k',
-    msg: 'Say: kool beans',
+    msg: 'Say: KK',
   },
   l: {
     keybinding: 'l',
-    msg: 'Say: LESGO',
+    msg: 'Say: Let me have that one!',
   },
 };
-
 
 module.exports = {
   IP,
