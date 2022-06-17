@@ -1,6 +1,9 @@
 let connection;
 const { movement, messages } = require('./constants');
-
+/**
+ * Called on events to read user input
+ * @param { ReadableStream } data 
+ */
 const handleUserInput = data => {
   switch (data) {
     case movement.up.keybinding:
@@ -27,10 +30,16 @@ const handleUserInput = data => {
     case messages.l.keybinding:
       connection.write(messages.l.msg);
       break;
+      //Exit case for when Ctrl-c is pressed
     case '\u0003':
       process.exit();
   }
 };
+/**
+ * Reads user input
+ * @param { Object } conn 
+ * @returns Readable stream of user input
+ */
 const setupInput = conn => {
   connection = conn;
   const stdin = process.stdin;
