@@ -1,6 +1,6 @@
 const PORT = 50541;
-
-const GAME_SPEED = 25;
+//Adjusted game speed
+const GAME_SPEED = 75;
 const DIRECTIONS = {
   up: { x: 0, y: -1 },
   down: { x: 0, y: 1 },
@@ -52,6 +52,7 @@ const MESSAGE_TIMEOUT = 5000; // ms
 
 // auto move is the usual snake mode
 // its off, meaning snakes are still until moved by players
+// changed to on (true)
 const AUTO_MOVE_DEFAULT = true;
 
 module.exports = {
