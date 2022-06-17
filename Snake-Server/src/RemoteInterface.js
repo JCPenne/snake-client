@@ -26,12 +26,18 @@ class RemoteInterface {
       })
       .on("connection", this.handleNewClient.bind(this))
       .on("connection", (client) => {
-        client.write(
-          `Your ID is ${client.id} Thanks for connecting to Snek game! There are ${this.clients.length} currently connected \n`
-        );
+        if (this.clients.length === 1) {
+          client.write(
+            `Thanks for connecting to Snake Game! Your ID is ${client.id}. You are currently the only player connected. \n`
+          );
+        } else {
+          client.write(
+            `Thanks for connecting to Snek game! There are ${this.clients.length} players currently connected \n`
+          );
+        }
         for (const socket of this.clients) {
           if (socket.id !== client.id) {
-            socket.write(`${client.id} has joined!`);
+            socket.write(`Another player has joined! Their ID is ${client.id}`);
           }
         }
       })
@@ -61,7 +67,7 @@ class RemoteInterface {
   handleNewClient(client) {
     // process.stdout.write('\x07')
     client.setEncoding("utf8");
-    client.id = Math.ceil(Math.random() * 100000);
+    client.id = Math.ceil(Math.random() * 1000);
     this.clients.push(client);
     this.resetIdleTimer(client, MAX_IDLE_TIMEOUT / 2);
 
