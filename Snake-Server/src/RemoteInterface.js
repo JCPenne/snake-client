@@ -28,11 +28,11 @@ class RemoteInterface {
       .on("connection", (client) => {
         if (this.clients.length === 1) {
           client.write(
-            `Thanks for connecting to Snake Game! Your ID is ${client.id}. You are currently the only player connected. \n`
+            `Thanks for connecting to Snake Game! Your ID is ${client.id}. \n You are currently the only player connected. \n`
           );
         } else {
           client.write(
-            `Thanks for connecting to Snek game! There are ${this.clients.length} players currently connected \n`
+            `Thanks for connecting to Snek game! \n There are ${this.clients.length} players currently connected \n`
           );
         }
         for (const socket of this.clients) {
